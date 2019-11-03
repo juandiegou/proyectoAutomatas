@@ -1,0 +1,68 @@
+{
+"estado_inicial": [[0, 0, 0, 0]], 
+"estado_aceptacion": [[1, 1, 1, 1]], 
+"graph": [
+    {"label": [0, 0, 0, 0], "FIN": false, 
+    "adyacentes": [
+        {"label": [1, 0, 0, 1], "FIN": true}, 
+        {"label": [0, 1, 0, 1], "FIN": false}, 
+        {"label": [0, 0, 1, 1], "FIN": true}, 
+        {"label": [0, 0, 0, 1], "FIN": true}], "done": true}, 
+        
+    {"label": [1, 0, 0, 1], "FIN": true, "adyacentes": [], "done": true}, 
+    
+    {"label": [0, 1, 0, 1], "FIN": false, 
+    "adyacentes": [
+        {"label": [0, 0, 0, 0], "FIN": false}, 
+        {"label": [0, 1, 0, 0], "FIN": false}], "done": true}, 
+        
+    {"label": [0, 0, 1, 1], "FIN": true, "adyacentes": [], "done": true}, 
+        
+    {"label": [0, 0, 0, 1], "FIN": true, "adyacentes": [], "done": true},
+         
+    {"label": [0, 1, 0, 0], "FIN": false, 
+    "adyacentes": [
+        {"label": [1, 1, 0, 1], "FIN": false}, 
+        {"label": [0, 1, 1, 1], "FIN": false}, 
+        {"label": [0, 1, 0, 1], "FIN": false}], "done": true}, 
+        
+    {"label": [1, 1, 0, 1], "FIN": false, 
+    "adyacentes": [
+        {"label": [0, 1, 0, 0], "FIN": false}, 
+        {"label": [1, 0, 0, 0], "FIN": false}, 
+        {"label": [1, 1, 0, 0], "FIN": true}], "done": true}, 
+        
+    {"label": [0, 1, 1, 1], "FIN": false, 
+    "adyacentes": [
+        {"label": [0, 0, 1, 0], "FIN": false}, 
+        {"label": [0, 1, 0, 0], "FIN": false}, 
+        {"label": [0, 1, 1, 0], "FIN": true}], "done": true}, 
+        
+    {"label": [1, 0, 0, 0], "FIN": false, 
+    "adyacentes": [
+        {"label": [1, 1, 0, 1], "FIN": false}, 
+        {"label": [1, 0, 1, 1], "FIN": false}, 
+        {"label": [1, 0, 0, 1], "FIN": true}], "done": true}, 
+        {"label": [1, 1, 0, 0], "FIN": true, "adyacentes": [], "done": true}, 
+        
+    {"label": [0, 0, 1, 0], "FIN": false, 
+    "adyacentes": [
+        {"label": [1, 0, 1, 1], "FIN": false}, 
+        {"label": [0, 1, 1, 1], "FIN": false}, 
+        {"label": [0, 0, 1, 1], "FIN": true}], "done": true}, 
+        
+    {"label": [0, 1, 1, 0], "FIN": true, "adyacentes": [], "done": true}, 
+    
+    {"label": [1, 0, 1, 1], "FIN": false, 
+    "adyacentes": [
+        {"label": [0, 0, 1, 0], "FIN": false}, 
+        {"label": [1, 0, 0, 0], "FIN": false}, 
+        {"label": [1, 0, 1, 0], "FIN": false}], "done": true}, 
+    
+    {"label": [1, 0, 1, 0], "FIN": false, 
+    "adyacentes": [
+        {"label": [1, 1, 1, 1], "FIN": false}, 
+        {"label": [1, 0, 1, 1], "FIN": false}], "done": true}, 
+        {"label": [1, 1, 1, 1], "FIN": false, "adyacentes": [], "done": true}],
+        
+    "transiciones": []}{"estado_inicial": [[0, 0, 0, 0]], "estado_aceptacion": [[1, 1, 1, 1]], "graph": [{"label": [0, 0, 0, 0], "FIN": false, "adyacentes": [{"label": [1, 0, 0, 1], "FIN": true}, {"label": [0, 1, 0, 1], "FIN": false}, {"label": [0, 0, 1, 1], "FIN": true}, {"label": [0, 0, 0, 1], "FIN": true}], "done": true}, {"label": [1, 0, 0, 1], "FIN": true, "adyacentes": [], "done": true}, {"label": [0, 1, 0, 1], "FIN": false, "adyacentes": [{"label": [0, 0, 0, 0], "FIN": false}, {"label": [0, 1, 0, 0], "FIN": false}], "done": true}, {"label": [0, 0, 1, 1], "FIN": true, "adyacentes": [], "done": true}, {"label": [0, 0, 0, 1], "FIN": true, "adyacentes": [], "done": true}, {"label": [0, 1, 0, 0], "FIN": false, "adyacentes": [{"label": [1, 1, 0, 1], "FIN": false}, {"label": [0, 1, 1, 1], "FIN": false}, {"label": [0, 1, 0, 1], "FIN": false}], "done": true}, {"label": [1, 1, 0, 1], "FIN": false, "adyacentes": [{"label": [0, 1, 0, 0], "FIN": false}, {"label": [1, 0, 0, 0], "FIN": false}, {"label": [1, 1, 0, 0], "FIN": true}], "done": true}, {"label": [0, 1, 1, 1], "FIN": false, "adyacentes": [{"label": [0, 0, 1, 0], "FIN": false}, {"label": [0, 1, 0, 0], "FIN": false}, {"label": [0, 1, 1, 0], "FIN": true}], "done": true}, {"label": [1, 0, 0, 0], "FIN": false, "adyacentes": [{"label": [1, 1, 0, 1], "FIN": false}, {"label": [1, 0, 1, 1], "FIN": false}, {"label": [1, 0, 0, 1], "FIN": true}], "done": true}, {"label": [1, 1, 0, 0], "FIN": true, "adyacentes": [], "done": true}, {"label": [0, 0, 1, 0], "FIN": false, "adyacentes": [{"label": [1, 0, 1, 1], "FIN": false}, {"label": [0, 1, 1, 1], "FIN": false}, {"label": [0, 0, 1, 1], "FIN": true}], "done": true}, {"label": [0, 1, 1, 0], "FIN": true, "adyacentes": [], "done": true}, {"label": [1, 0, 1, 1], "FIN": false, "adyacentes": [{"label": [0, 0, 1, 0], "FIN": false}, {"label": [1, 0, 0, 0], "FIN": false}, {"label": [1, 0, 1, 0], "FIN": false}], "done": true}, {"label": [1, 0, 1, 0], "FIN": false, "adyacentes": [{"label": [1, 1, 1, 1], "FIN": false}, {"label": [1, 0, 1, 1], "FIN": false}], "done": true}, {"label": [1, 1, 1, 1], "FIN": false, "adyacentes": [], "done": true}], "transiciones": []}{"estado_inicial": [[0, 0, 0, 0]], "estado_aceptacion": [[1, 1, 1, 1]], "graph": [{"label": [1, 0, 0, 1], "FIN": false, "adyacentes": [{"label": [1, 0, 0, 1], "FIN": true}, {"label": [0, 0, 0, 0], "FIN": true}, {"label": [1, 0, 0, 0], "FIN": true}], "done": true}, {"label": [0, 0, 0, 0], "FIN": true, "adyacentes": [], "done": true}, {"label": [1, 0, 0, 0], "FIN": true, "adyacentes": [], "done": true}], "transiciones": []}{"estado_inicial": [[0, 0, 0, 0]], "estado_aceptacion": [[1, 1, 1, 1]], "graph": [{"label": [1, 0, 0, 1], "FIN": false, "adyacentes": [{"label": [1, 0, 0, 1], "FIN": true}, {"label": [0, 0, 0, 0], "FIN": true}, {"label": [1, 0, 0, 0], "FIN": true}], "done": true}, {"label": [0, 0, 0, 0], "FIN": true, "adyacentes": [], "done": true}, {"label": [1, 0, 0, 0], "FIN": true, "adyacentes": [], "done": true}], "transiciones": []}{"estado_inicial": [[0, 0, 0, 0]], "estado_aceptacion": [[1, 1, 1, 1]], "graph": [{"label": [0, 0, 0, 0], "FIN": false, "adyacentes": [{"label": [1, 0, 0, 1], "FIN": true}, {"label": [0, 1, 0, 1], "FIN": false}, {"label": [0, 0, 1, 1], "FIN": true}, {"label": [0, 0, 0, 1], "FIN": true}], "done": true}, {"label": [1, 0, 0, 1], "FIN": true, "adyacentes": [], "done": true}, {"label": [0, 1, 0, 1], "FIN": false, "adyacentes": [{"label": [0, 0, 0, 0], "FIN": false}, {"label": [0, 1, 0, 0], "FIN": false}], "done": true}, {"label": [0, 0, 1, 1], "FIN": true, "adyacentes": [], "done": true}, {"label": [0, 0, 0, 1], "FIN": true, "adyacentes": [], "done": true}, {"label": [0, 1, 0, 0], "FIN": false, "adyacentes": [{"label": [1, 1, 0, 1], "FIN": false}, {"label": [0, 1, 1, 1], "FIN": false}, {"label": [0, 1, 0, 1], "FIN": false}], "done": true}, {"label": [1, 1, 0, 1], "FIN": false, "adyacentes": [{"label": [0, 1, 0, 0], "FIN": false}, {"label": [1, 0, 0, 0], "FIN": false}, {"label": [1, 1, 0, 0], "FIN": true}], "done": true}, {"label": [0, 1, 1, 1], "FIN": false, "adyacentes": [{"label": [0, 0, 1, 0], "FIN": false}, {"label": [0, 1, 0, 0], "FIN": false}, {"label": [0, 1, 1, 0], "FIN": true}], "done": true}, {"label": [1, 0, 0, 0], "FIN": false, "adyacentes": [{"label": [1, 1, 0, 1], "FIN": false}, {"label": [1, 0, 1, 1], "FIN": false}, {"label": [1, 0, 0, 1], "FIN": true}], "done": true}, {"label": [1, 1, 0, 0], "FIN": true, "adyacentes": [], "done": true}, {"label": [0, 0, 1, 0], "FIN": false, "adyacentes": [{"label": [1, 0, 1, 1], "FIN": false}, {"label": [0, 1, 1, 1], "FIN": false}, {"label": [0, 0, 1, 1], "FIN": true}], "done": true}, {"label": [0, 1, 1, 0], "FIN": true, "adyacentes": [], "done": true}, {"label": [1, 0, 1, 1], "FIN": false, "adyacentes": [{"label": [0, 0, 1, 0], "FIN": false}, {"label": [1, 0, 0, 0], "FIN": false}, {"label": [1, 0, 1, 0], "FIN": false}], "done": true}, {"label": [1, 0, 1, 0], "FIN": false, "adyacentes": [{"label": [1, 1, 1, 1], "FIN": false}, {"label": [1, 0, 1, 1], "FIN": false}], "done": true}, {"label": [1, 1, 1, 1], "FIN": false, "adyacentes": [], "done": true}], "transiciones": []}{"estado_inicial": [[0, 0, 0, 0]], "estado_aceptacion": [[1, 1, 1, 1]], "graph": [{"label": [0, 0, 0, 0], "FIN": false, "adyacentes": [{"label": [1, 0, 0, 1], "FIN": true}, {"label": [0, 1, 0, 1], "FIN": false}, {"label": [0, 0, 1, 1], "FIN": true}, {"label": [0, 0, 0, 1], "FIN": true}], "done": true}, {"label": [1, 0, 0, 1], "FIN": true, "adyacentes": [], "done": true}, {"label": [0, 1, 0, 1], "FIN": false, "adyacentes": [{"label": [0, 0, 0, 0], "FIN": false}, {"label": [0, 1, 0, 0], "FIN": false}], "done": true}, {"label": [0, 0, 1, 1], "FIN": true, "adyacentes": [], "done": true}, {"label": [0, 0, 0, 1], "FIN": true, "adyacentes": [], "done": true}, {"label": [0, 1, 0, 0], "FIN": false, "adyacentes": [{"label": [1, 1, 0, 1], "FIN": false}, {"label": [0, 1, 1, 1], "FIN": false}, {"label": [0, 1, 0, 1], "FIN": false}], "done": true}, {"label": [1, 1, 0, 1], "FIN": false, "adyacentes": [{"label": [0, 1, 0, 0], "FIN": false}, {"label": [1, 0, 0, 0], "FIN": false}, {"label": [1, 1, 0, 0], "FIN": true}], "done": true}, {"label": [0, 1, 1, 1], "FIN": false, "adyacentes": [{"label": [0, 0, 1, 0], "FIN": false}, {"label": [0, 1, 0, 0], "FIN": false}, {"label": [0, 1, 1, 0], "FIN": true}], "done": true}, {"label": [1, 0, 0, 0], "FIN": false, "adyacentes": [{"label": [1, 1, 0, 1], "FIN": false}, {"label": [1, 0, 1, 1], "FIN": false}, {"label": [1, 0, 0, 1], "FIN": true}], "done": true}, {"label": [1, 1, 0, 0], "FIN": true, "adyacentes": [], "done": true}, {"label": [0, 0, 1, 0], "FIN": false, "adyacentes": [{"label": [1, 0, 1, 1], "FIN": false}, {"label": [0, 1, 1, 1], "FIN": false}, {"label": [0, 0, 1, 1], "FIN": true}], "done": true}, {"label": [0, 1, 1, 0], "FIN": true, "adyacentes": [], "done": true}, {"label": [1, 0, 1, 1], "FIN": false, "adyacentes": [{"label": [0, 0, 1, 0], "FIN": false}, {"label": [1, 0, 0, 0], "FIN": false}, {"label": [1, 0, 1, 0], "FIN": false}], "done": true}, {"label": [1, 0, 1, 0], "FIN": false, "adyacentes": [{"label": [1, 1, 1, 1], "FIN": false}, {"label": [1, 0, 1, 1], "FIN": false}], "done": true}, {"label": [1, 1, 1, 1], "FIN": false, "adyacentes": [], "done": true}], "transiciones": []}
