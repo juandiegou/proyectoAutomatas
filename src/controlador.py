@@ -1,6 +1,7 @@
 #import networkx as nx
 
 import graphviz as gv
+import solucionador
 
 
 
@@ -12,6 +13,7 @@ class controlador:
         gr = gv.Digraph(format='png',directory="C:/Users/juand/Desktop",strict=True)
         gr.graph_attr['rankdir'] = 'LR'
         gr.node('ini',shape="point")
+        
 
 
 

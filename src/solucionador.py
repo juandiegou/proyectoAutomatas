@@ -10,6 +10,9 @@ class solucionador:
 
     def solucionar(self,estadoI,estadoF):
         w,t=[],[]
+        k={}
+        z=''.join(str(e) for e in estadoI)
+        k[z]={}
         for i in range(len(estadoI)):
             
             estadoI[i]=1
@@ -19,10 +22,13 @@ class solucionador:
                 w.append(temp)
                 v=self.combinar(temp,len(temp))
                 #print(temp,":",v)
+                m=''.join(str(e) for e in temp)
+                k[z][m]=1
+                k=self.crearDic(temp,v,k)
                 t.append(v)
                 estadoI[j]=0
             estadoI[i]=0
-        return w,t 
+        return k
         
     def combinar(self,lista,r):
         l=itertools.combinations_with_replacement(lista,r)
@@ -32,6 +38,18 @@ class solucionador:
            m.append(list(e)) 
         return m
     
+    def crearDic(self,t,l,d):
+        temp=l.copy()
+        v=''.join(str(e) for e in t)
+        d[v]={}
+        for x  in temp:
+            z=''.join(str(e) for e in x)
+            d[v][z]=1
+
+        return d
+
+
+
     def unir(self,estadoI,I,l):
         a={ }
         temp=l.copy()
@@ -49,14 +67,10 @@ class solucionador:
                 a[m][z]=1
         print (a)    
 
-estadoI=[0,0]
-estadoF=[1,1]
+estadoI=[0,0,0,0]
+estadoF=[1,1,1,1]
 
 s=solucionador()
-a,temp=[],[]
-for i in estadoI:
-    temp.append(i)
-a.append(temp)
-w,t=s.solucionar(estadoI,estadoF)
-s.unir(estadoI,w,t)
-#print(t)
+
+d=s.solucionar(estadoI,estadoF)
+print(d)
