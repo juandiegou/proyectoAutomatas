@@ -27,10 +27,11 @@ class controlador:
             gr.node(g,label=g)
         gr.render(view=True,directory="C:/Users/juand/Desktop/proyecto automatas1/src/imgs",cleanup=False,filename="nodes")
 
+        #pintando aristas
         for t in grafo:
             print(t,end=":")
             for y in grafo[t]:
-                gr.edge(t,y, label=str(grafo[t][y]),color='red')
+                gr.edge(t,y,color='red')
                 nombre="arista"+t+y
                 gr.render(view=False,directory="C:/Users/juand/Desktop/proyecto automatas1/src/imgs",cleanup=False,filename=nombre)
 

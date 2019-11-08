@@ -67,10 +67,10 @@ class solucionador:
                 a[m][z]=1
         print (a)    
 
-estadoI=[0,0,0,0]
-estadoF=[1,1,1,1]
+#estadoI=[0,0,0,0]
+#estadoF=[1,1,1,1]
 
-s=solucionador()
+#s=solucionador()
 
-d=s.solucionar(estadoI,estadoF)
-print(d)
+#d=s.solucionar(estadoI,estadoF)
+#print(d)

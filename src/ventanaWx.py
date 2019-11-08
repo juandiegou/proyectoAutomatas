@@ -9,6 +9,7 @@ import wx.richtext
 from lector import Lector
 from controlador import controlador
 from graph import Grafo
+from solucionador import solucionador
 from PIL import Image as im
 
 pygame.init()
@@ -18,6 +19,7 @@ class Frame(wx.Frame):
     pnl=None
     controller=None
     g=None
+    ruta=None
 
     def __init__(self, *args, **kw):
         # ensure the parent's __init__ is called
@@ -117,12 +119,12 @@ class Frame(wx.Frame):
         dlg = wx.FileDialog(self, message="Select your file",defaultDir=os.getcwd(),defaultFile="*.*", wildcard=wildcard)
         if dlg.ShowModal() == wx.ID_OK:
             picfile = dlg.GetFilename()
-            ruta= dlg.GetPath()
+            self.ruta= dlg.GetPath()
             print(picfile)
-            print(ruta)
-            self.reader=Lector(ruta)
+            print(self.ruta)
+            self.reader=Lector(self.ruta)
             self.reader.leer()
-            self.g=self.reader.getGrafo()
+            #self.g=self.reader.getGrafo()
 
     def OnAbout(self, event):
         """Display an About Dialog"""
@@ -143,23 +145,23 @@ class Frame(wx.Frame):
 
     def generar(self,event):
         #self.controler=controlador()
-        self.Openfile(event)
-        c=controlador(self.g)
-
-
-
+        if self.ruta==None:
+            self.Openfile(event)
+        
+        inicial=self.reader.getInicial()
+        aceptacion=self.reader.getAceptacion()
+        s=solucionador()
+        g=s.solucionar(inicial,aceptacion)
+        c=controlador(g)
 
 
     def crearBotonera(self,panel2):
-        panel2.SetBackgroundColour('BLACK')
+        panel2.SetBackgroundColour('WHEAT')
 
-        botonG = wx.Button(panel2,-1,"generar",pos=(80,540),size=(50,25))
-        botonG.Bind(wx.EVT_LEFT_DCLICK, self.generar)
+        botonG = wx.Button(panel2,-1,"generar",pos=(80,540),size=(50,25),style=3)
+        botonG.Bind(wx.EVT_COMMAND_RIGHT_CLICK , self.generar)
         #creacion de eventos de cada caja de texto por un boton
         #boton1
-
-
-
 
 if __name__ == '__main__':
     # When this module is run (not imported) then create the app, the

@@ -6,9 +6,19 @@ from graph import Grafo
 class Lector:
 
     def __init__(self,ruta):
+        self.Inicio=None
+        self.Fin=None
         with open (ruta) as file:
             self.data= json.load(file)
-   
+
+    
+
+    def getInicial(self):
+        return self.data['Automata']['inicial']['estado']
+
+    def getAceptacion(self):
+        return self.data['Automata']['aceptacion']['estado']
+
 
 
     def leer(self):
