@@ -7,6 +7,7 @@ class solucionador:
         self.estadoI=None
         self.estadoF=None
         self.resultado=None
+        
 
     def solucionar(self,estadoI,estadoF):
         w,t=[],[]
@@ -39,7 +40,7 @@ class solucionador:
         return m
     
     def crearDic(self,t,l,d):
-        temp=l.copy()
+        temp=l.copy()  
         v=''.join(str(e) for e in t)
         d[v]={}
         for x  in temp:
@@ -65,7 +66,9 @@ class solucionador:
             for w in l:
                 z=''.join(str(e) for e in x)
                 a[m][z]=1
-        print (a)    
+        
+        
+        #print (a)    
 
 #estadoI=[0,0,0,0]
 #estadoF=[1,1,1,1]

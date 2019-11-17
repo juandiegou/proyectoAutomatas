@@ -106,7 +106,7 @@ class Grafo:
                 
         while len(cola) > 0:
             peso, origen, destino = heappop(cola)
-            print(peso, origen, destino)
+            #print(peso, origen, destino)
             if origen is None and destino is None:
                 continue
             elif len(mst) == 0:
@@ -137,7 +137,7 @@ class Grafo:
         vertices, mst = [], {}
         cola = [(0, None, inicio)]
         while len(cola) > 0:
-            print(cola)
+            #print(cola)
             _, origen, destino = heappop(cola)
             if destino in vertices:
                 continue
@@ -160,7 +160,7 @@ class Grafo:
         cola.append(nodo)
         while len(cola) > 0:
             temp = cola.pop(0)
-            print(temp, end=" ")
+            #print(temp, end=" ")
             marcas[temp] = True
             for ady in self.adyacentes(temp):
                 if ady not in cola:
@@ -176,7 +176,7 @@ class Grafo:
         pila.append(nodo)
         while len(pila) > 0:
             temp = pila.pop()
-            print(temp, end=" ")
+            #print(temp, end=" ")
             marcas[temp] = True
             for ady in self.adyacentes(temp):
                 if ady not in pila:
@@ -184,6 +184,7 @@ class Grafo:
                         pila.append(ady)
                         
     def relajacion(self, u, v, solucion, camino):
+        print('v ',end=v+'\n')
         d = solucion.get(u, math.inf) + self.grafo[u][v]
         if d < solucion.get(v, math.inf):
             solucion[v] = d
@@ -193,17 +194,6 @@ class Grafo:
         return self.grafo
 
      
-'''g = {'L': {'B': 5, 'P': 2},
-     'P': {'E': 3, 'B': 10, 'L': 2},
-     'E': {'P': 3, 'B': 1},
-     'B': {'L': 5, 'P': 10, 'E': 1}}
 
-g ={1:{2:1,3:1},
-    2:{1:1,4:1},
-    3:{1:1},
-    4:{2:1,3:1}}
-
-
-grafo = Grafo(g)
-print(grafo.dijkstra(2))
-'''
+grafo={'a': {'a': 0, 'c': 1}, 'b': {'b': 0, 'e': 1}, 'c': {'b': 1, 'd': 0}, 'd': {'f': 1, 'e': 0}, 'e': {'f': 1, 'g': 0}, 'f': {'f': 0, 'g': 0}, 'g': {'g': 0, 'd': 1}} 
+g=Grafo(grafo)

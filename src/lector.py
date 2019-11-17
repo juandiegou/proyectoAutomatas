@@ -19,8 +19,6 @@ class Lector:
     def getAceptacion(self):
         return self.data['Automata']['aceptacion']['estado']
 
-
-
     def leer(self):
         inf=self.data
         estados=inf['Automata']['estados']
@@ -36,7 +34,7 @@ class Lector:
         #e of edge
         for e in  dic:
             dic[e]=self.data['Automata']['transiciones'][e]
-        print(dic)
+        #print(dic)
         g= Grafo(dic)
         #print("dijsktra")
         #print( g.dijkstra(inicio))
