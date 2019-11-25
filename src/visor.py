@@ -17,13 +17,14 @@ class PygameDisplay(wx.Window):
         self.Bind(wx.EVT_PAINT, self.OnPaint)
         self.Bind(wx.EVT_TIMER, self.Update, self.timer)
         self.Bind(wx.EVT_SIZE, self.OnSize)
-
+    
         self.fps = 60.0
+        '''
         self.timespacing = 1000.0 / self.fps
         self.timer.Start(self.timespacing, False)
 
         #self.linespacing = 5
-
+        '''
     def Update(self, event):
         # Any update tasks would go here (moving sprites, advancing animation frames etc.)
         self.Redraw()
@@ -67,13 +68,13 @@ class Frame(wx.Frame):
         wx.Frame.__init__(self, parent, -1, size = (600, 600))
 
         self.display = PygameDisplay(self, -1)
-
+    
         self.statusbar = self.CreateStatusBar()
         self.statusbar.SetFieldsCount(3)
         self.statusbar.SetStatusWidths([-3, -4, -2])
         self.statusbar.SetStatusText("wxPython", 0)
         self.statusbar.SetStatusText("Look, it's a nifty status bar!!!", 1)
-
+    
         self.Bind(wx.EVT_SIZE, self.OnSize)
         self.Bind(wx.EVT_CLOSE, self.Kill)
 
@@ -86,8 +87,9 @@ class Frame(wx.Frame):
         #self.button = wx.Button(self, -1, "DO NOT PRESS THIS BUTTON")
 
         self.timer = wx.Timer(self)
-
+        '''    
         self.Bind(wx.EVT_SCROLL, self.OnScroll)
+        '''
         self.Bind(wx.EVT_SIZE, self.OnSize)
         self.Bind(wx.EVT_TIMER, self.Update, self.timer)
         #self.Bind(wx.EVT_BUTTON, self.ButtonClick, self.button)
@@ -95,8 +97,8 @@ class Frame(wx.Frame):
         self.timer.Start((1000.0 / self.display.fps))
 
         self.sizer = wx.BoxSizer(wx.VERTICAL)
-        self.sizer2 = wx.BoxSizer(wx.HORIZONTAL)
-        self.sizer2.Add(self.slider, 1, flag = wx.EXPAND | wx.RIGHT, border = 5)
+        #self.sizer2 = wx.BoxSizer(wx.HORIZONTAL)
+        #self.sizer2.Add(self.slider, 1, flag = wx.EXPAND | wx.RIGHT, border = 5)
         #self.sizer2.Add(self.button, 0, flag = wx.EXPAND | wx.ALL, border = 5)
         self.sizer.Add(self.sizer2, 0, flag = wx.EXPAND)
         self.sizer.Add(self.display, 1, flag = wx.EXPAND)

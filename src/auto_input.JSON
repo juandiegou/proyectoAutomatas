@@ -4,7 +4,7 @@
         "B": [0, 3]
     },
     "Q0": [0, 0],
-    "F": [0, 4],
+    "F": [4, 0],
     "transitions": {
         "llenarA": [5, "B"],
         "llenarB": ["A", 3], 
@@ -20,9 +20,9 @@
         "llenarB": "B<3",
         "vaciarA": "A>0",
         "vaciarB": "B>0",
-        "pasarAB": "B<(5-A) and B>0",
-        "pasarABP": "A>(3-B) and B<3",
-        "pasarBA": "A<(3-B) and A>0",
-        "pasarBAP": "B>(5-A) and A<5"
+        "pasarAB": "A<=3-B and A>0",
+        "pasarABP": "A>3-B and B<3",
+        "pasarBA": "B<=5-A and B>0",
+        "pasarBAP": "B>5-A and A<5"
     }
 }

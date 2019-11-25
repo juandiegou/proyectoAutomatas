@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri Nov  1 15:36:11 2019
+
 @author: Simón
 """
-#from automata.graphic import controller
-from graphic import controller
+from automata.graphic import controller
 from heapq import heappop, heappush
 import json
 import time
@@ -12,24 +12,55 @@ import time
 class automata:
 
     def __init__(self,ruta):
-        with open(ruta) as file:
-            model = json.load(file)
-
+        self.ruta=ruta
         try:
-            self.variables = {variable: 0 for variable in model['variables'].keys()}
-            self.variables_copy = {variable: 0 for variable in model['variables'].keys()}
-            self.domain = [dom for _, dom in model['variables'].items()]
-            self.transitions = model['transitions']
-            self.restrictions = model['restrictions']
-            self.q0 = tuple(model['Q0'])
-            self.f = tuple(model['F'])
-            print(self.f)
-            self.state = self.q0
-            #solution = {q0: []}
-            self.solution = {self.q0: {}}
-        except TypeError as e:
-            print("Error ",e)
+            with open('src/auto_input.JSON') as file:
+                model = json.load(file)
+
+        except Exception as e:
+            print(e)
+
         
+        self.variables = {variable: 0 for variable in model['variables'].keys()}
+        self.variables_copy = {variable: 0 for variable in model['variables'].keys()}
+        self.domain = [dom for _, dom in model['variables'].items()]
+        self.transitions = model['transitions']
+        self.restrictions = model['restrictions']
+        self.q0 = tuple(model['Q0'])
+        self.f = tuple(model['F'])
+        #            print(f)
+        self.state = self.q0
+        #solution = {q0: []}
+        self.solution = {self.q0: {}}
+        
+        self.solve4()
+        
+        self.traversal =self.encontrarCaminoCorto(self.q0, self.f)
+        self.graph = controller(self.solution)
+        self.graph.graph_all(str(self.q0), str(self.f))
+        #graph.graph_shortest(self.traversal, str(self.q0), str(self.f))
+        #graph.stepbstep(self.traversal,str(self.q0), str(self.f))
+
+
+
+    def genera_paso_a_paso(self):
+        self.graph.stepbstep(self.traversal,str(self.q0), str(self.f))
+
+    def genera_camino(self):
+        self.graph.graph_shortest(self.traversal, str(self.q0), str(self.f))
+
+    def get_transversal(self):
+        return self.traversal
+
+    def get_q0(self):
+        return self.q0
+
+    def get_f(self):
+        return self.f
+
+    def get_solution(self):
+        return self.solution
+           
 
     def update_variables(self,values):
         i = 0
@@ -82,8 +113,10 @@ class automata:
         candidates.append(self.q0)
         while len(pending) > 0:
             candidate = pending.pop(0)
+            self.update_variables(candidate)
             for word, transition in self.transitions.items():
                 #print(candidate, candidates)
+                #print(eval(restrictions[word], variables_copy))
                 if eval(self.restrictions[word], self.variables_copy):
                     new_candidate = self.eval_transition(candidate,  transition)
                     if new_candidate in candidates:
@@ -99,7 +132,6 @@ class automata:
                 self.update_variables(candidate)
         return self.solution
 
-    #self.solve4()
 
     ################ OPERATIONS OVER THE FINAL GRAPH ################
     def adjacencies(self,node):
@@ -118,14 +150,8 @@ class automata:
                             caminoCorto = nuevoCamino
             return caminoCorto
 
+    #traversal = encontrarCaminoCorto(q0, f)
 
-    def init(self):
-        self.solve4()
-        traversal = self.encontrarCaminoCorto(self.q0,self.f)
-        graph = controller(self.solution)
-        graph.graph_all(str(self.q0), str(self.f))
-        graph.graph_shortest(traversal, str(self.q0), str(self.f))
-        
-
-x=automata('src/auto_input.JSON')
-x.init()
+    #graph = controller(solution)
+    #graph.graph_all(str(q0), str(f))
+    #graph.graph_shortest(traversal, str(q0), str(f))
