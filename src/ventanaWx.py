@@ -13,12 +13,16 @@ import time as t
 pygame.init()
 
 class Frame(wx.Frame):
+    #creacion de variables globales
     reader,pnl,ruta,img,autom,control=None,None,None,None,None,None
+    r=None
+    #metosdo main inicializador
     def __init__(self, *args, **kw):
         # ensure the parent's __init__ is called
         super(Frame, self).__init__(*args, **kw)
+
         #sonido
-        pygame.mixer_music.load("C:/Users/juand/Desktop/proyecto automatas1/src/kiss.mp3")
+        pygame.mixer_music.load("C:/Users\juand\Desktop\proyectoAutomatas\src/kiss.mp3")
         pygame.mixer.music.play(-1)
         self.encender(wx.EvtHandler())
         # create a panel in the frame
@@ -39,6 +43,8 @@ class Frame(wx.Frame):
         #crear botonera
         self.crearBotonera(pnl2)
 
+    #metodo para crear la barra de menu 
+    #esta ubicado en el panel 1
     def makeMenuBar(self):
         """
         A menu bar is composed of menus, which are composed of menu items.
@@ -91,41 +97,48 @@ class Frame(wx.Frame):
         self.Bind(wx.EVT_MENU, self.OnExit,  exitItem)
         self.Bind(wx.EVT_MENU, self.OnAbout, aboutItem)
 
+    #metodo para encender el sonido
     def encender(self,event):
         pygame.mixer_music.play(-1)
        
-
+    #metodo para apagar el sonido
     def apagar(self,event):
         pygame.mixer_music.stop()
-      
+
+    #metodo para salir de la aplicacion      
     def OnExit(self, event):
         """Close the frame, terminating the application."""
         self.Close(True)
-        e.skip()
+        
 
+    #metodo para abrir el archivo
     def Openfile(self, event):
         wildcard = "Python source (*.py; *.pyc)|*.py;*.pyc|" "All files (*.*)|*.*"
         dlg = wx.FileDialog(self, message="Select your file",defaultDir=os.getcwd(),defaultFile="*.*", wildcard=wildcard)
         if dlg.ShowModal() == wx.ID_OK:
             picfile = dlg.GetFilename()
             self.ruta= dlg.GetPath()
+            self.r=1
             #dlg.GetFilename()
             #self.reader=Lector(self.ruta)
             self.autom=automata(self.ruta)
 
+    #muestra informacion del los realizadores
     def OnAbout(self, event):
         """Display an About Dialog"""
         wx.MessageBox("About: make for Juan Diego Gallego G \n& Simón Muñoz O",
                     "This is a automata that autosolve",
                      wx.OK|wx.ICON_INFORMATION)
 
+    #este metodo hace el dibujo del automata
+    #este metodo es igual a los otros 
     def pintura(self,e):
-        r=2
-        if r!=None:
+        
+        if self.r!=None:
             ig=im.open("src\imgs\Full automata.png")
             ig=ig.resize((1200,670),im.ANTIALIAS)
-            ig.save("C:/Users/juand/Desktop/proyecto automatas1/src/imgs/Full automata.png",optimize=True,quality=900)
-            w=wx.Bitmap("C:/Users/juand/Desktop/proyecto automatas1/src/imgs/Full automata.png",wx.BITMAP_TYPE_ANY)
+            ig.save("C:/Users\juand\Desktop\proyectoAutomatas\src/imgs/Full automata.png",optimize=True,quality=900)
+            w=wx.Bitmap("C:/Users\juand\Desktop\proyectoAutomatas\src/imgs/Full automata.png",wx.BITMAP_TYPE_ANY)
             dibujo=wx.ClientDC(self.pnl)  
             dibujo.Clear()
             dibujo.DrawBitmap(w,x=0,y=0,useMask=False)
@@ -141,6 +154,7 @@ class Frame(wx.Frame):
                 i+=1
             dibujo.Clear()
 
+    #metodo para generar la solucion
     def generar(self,event):
         #self.controler=controlador()
         if self.ruta is None:
@@ -151,6 +165,7 @@ class Frame(wx.Frame):
         if r==2:
             self.pintura(event)
 
+    #este metdod limpia la pantalla
     def clean(self,e):
         t=self.pnl.GetChildren()
         for x in t:
@@ -158,7 +173,8 @@ class Frame(wx.Frame):
         dibujo=wx.ClientDC(self.pnl)  
         dibujo.SetBackground(wx.WHITE_BRUSH)          
         dibujo.Clear()
-       
+
+    #este metodo crea la botonera del panel 2   
     def crearBotonera(self,panel2):
         panel2.SetBackgroundColour('LIGHT GREY')
         botonG = wx.Button(panel2,-1,"Generar",pos=(10,70),size=(140,70))
@@ -166,11 +182,14 @@ class Frame(wx.Frame):
         botonMA= wx.Button(panel2,-1,"Mostrar solucion", pos=(10,170), size=(140,70))
         botonMA.Bind(wx.EVT_BUTTON , self.draw)
         self.img=wx.StaticBitmap(panel2,wx.ID_ANY,
-        wx.Bitmap("C:/Users/juand/Desktop/proyecto automatas1/src/img.png",wx.BITMAP_TYPE_ANY),
+        wx.Bitmap("C:/Users\juand\Desktop\proyectoAutomatas\src/img.png",wx.BITMAP_TYPE_ANY),
         pos=(10,470),size=(140,200))
 
         #creacion de eventos de cada caja de texto por un boton
         #boton1  
+
+    #este metodo dibuja la solucion final
+    #es el mismo metodo de los otros
 
     def draw(self,e):
         if self.autom is not None:
@@ -179,16 +198,15 @@ class Frame(wx.Frame):
             dibujo=wx.ClientDC(self.pnl)  
             dibujo.SetBackground(wx.WHITE_BRUSH)          
             dibujo.Clear()
-            bitmap=wx.Bitmap("C:/Users/juand/Desktop/proyecto automatas1/src/imgs/Shortest traversal.png",wx.BITMAP_TYPE_PNG)
+            bitmap=wx.Bitmap("C:/Users\juand\Desktop\proyectoAutomatas\src/imgs/Shortest traversal.png",wx.BITMAP_TYPE_PNG)
             if bitmap.Width>1200:
                 from PIL import Image
-                ig=im.open("C:/Users/juand/Desktop/proyecto automatas1/src/imgs/Shortest traversal.png")
+                ig=im.open("C:/Users\juand\Desktop\proyectoAutomatas\src/imgs/Shortest traversal.png")
                 ig=ig.resize((1200,200),im.ANTIALIAS)
-                ig.save("C:/Users/juand/Desktop/proyecto automatas1/src/imgs/Shortest traversal.png",optimize=True,quality=900)
-                w=wx.Bitmap("C:/Users/juand/Desktop/proyecto automatas1/src/imgs/Shortest traversal.png",wx.BITMAP_TYPE_ANY)
+                ig.save("C:/Users\juand\Desktop\proyectoAutomatas\src/imgs/Shortest traversal.png",optimize=True,quality=900)
+                w=wx.Bitmap("C:/Users\juand\Desktop\proyectoAutomatas\src/imgs/Shortest traversal.png",wx.BITMAP_TYPE_ANY)
                 bitmap=w
             dibujo.DrawBitmap(bitmap,x=0,y=100,useMask=True)
-        
         else:
             dibujo=wx.ClientDC(self.pnl)
             x,y,tm,i=10,10,4,0
@@ -201,11 +219,13 @@ class Frame(wx.Frame):
                 i+=1
             dibujo.Clear()
 
+    #este metodo hace una espera por 5 segundos
     def delay(self):
         sleep(5)
 
 
-
+    #este método hace el paso a paso
+    #es igual a los anteriores pero con una demora en cada imagen
     def paint(self,e):
         if self.autom is not None:
             g=self.autom.get_transversal()
@@ -215,15 +235,15 @@ class Frame(wx.Frame):
             for x in range(len(g)-1):
                 dibujo.Clear()
                 nombre="img"+str(x)
-                bitmap=wx.Bitmap("C:/Users/juand/Desktop/proyecto automatas1/src/imgs/"+nombre+'.png',wx.BITMAP_TYPE_PNG)
+                bitmap=wx.Bitmap("C:/Users\juand\Desktop\proyectoAutomatas\src/imgs/"+nombre+'.png',wx.BITMAP_TYPE_PNG)
                 if bitmap.Width>1200:
                     print(bitmap.Width)
                     print(bitmap.Height)
                     from PIL import Image
-                    ig=im.open("C:/Users/juand/Desktop/proyecto automatas1/src/imgs/"+nombre+'.png')
+                    ig=im.open("C:/Users\juand\Desktop\proyectoAutomatas\src/imgs/"+nombre+'.png')
                     ig=ig.resize((1200,200),im.ANTIALIAS)
-                    ig.save("C:/Users/juand/Desktop/proyecto automatas1/src/imgs/"+nombre+'.png',optimize=True,quality=900)
-                    w=wx.Bitmap("C:/Users/juand/Desktop/proyecto automatas1/src/imgs/"+nombre+'.png',wx.BITMAP_TYPE_ANY)
+                    ig.save("C:/Users\juand\Desktop\proyectoAutomatas\src/imgs/"+nombre+'.png',optimize=True,quality=900)
+                    w=wx.Bitmap("C:/Users\juand\Desktop\proyectoAutomatas\src/imgs/"+nombre+'.png',wx.BITMAP_TYPE_ANY)
                     bitmap=w
                 dibujo.DrawBitmap(bitmap,x=0,y=200,useMask=True)
                 self.delay()      
@@ -249,7 +269,7 @@ if __name__ == '__main__':
         frm = Frame(None,title='Automatas', pos=(0,5),size=(1400,770))
         frm.SetMinSize(wx.Size(1400,770))
         frm.SetMaxSize(wx.Size(1400,770))
-        icono = wx.Icon('C:/Users/juand/Desktop/proyecto automatas1/src/img.ico')
+        icono = wx.Icon('C:/Users\juand\Desktop\proyectoAutomatas\src/img.ico')
         frm.SetIcon(icono)
         frm.Show(show=True)
         app.MainLoop()
@@ -257,5 +277,4 @@ if __name__ == '__main__':
        er=str(e)
        from tkinter import messagebox
        messagebox.showerror(message="se presentó un error\n"+er, title="error")
-       e.skip()
-  
+       

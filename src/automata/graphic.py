@@ -33,7 +33,7 @@ class controller:
         
     def graph_all(self, q0, f):
         self.convert_graph()
-        gr = g.Digraph(format = 'png', directory = 'C:/Users/juand/Desktop/proyecto automatas1/src',strict = True)
+        gr = g.Digraph(format = 'png', directory = 'C:/Users\juand\Desktop\proyectoAutomatas/src',strict = True)
         gr.graph_attr['rankdir'] = 'LR'
         gr.node('ini', shape = 'point')
         
@@ -51,7 +51,7 @@ class controller:
                 gr.edge(node, adj, color = 'red', label = label_name)
 #                name = 'aista' + node + adj
 #                gr.render(view = False, directory = 'D:\Programming\Python\Automata1', cleanup = True, filename = name)
-        gr.render(view = False, directory = 'C:/Users/juand/Desktop/proyecto automatas1/src/imgs', cleanup = True, filename = 'Full automata')
+        gr.render(view = False, directory = 'C:/Users\juand\Desktop\proyectoAutomatas/src/imgs', cleanup = True, filename = 'Full automata')
         
     def graph_shortest(self, traversal, q0, f):
         print(traversal)
@@ -69,7 +69,7 @@ class controller:
               
         self.graph = new_graph
         self.convert_graph()
-        gr = g.Digraph(format = 'png', directory = 'C:/Users/juand/Desktop/proyecto automatas1/src/imgs', strict = True)
+        gr = g.Digraph(format = 'png', directory = 'C:/Users\juand\Desktop\proyectoAutomatas/src/imgs', strict = True)
         gr.graph_attr['rankdir'] = 'LR'
         gr.node('ini', shape = 'point')
         
@@ -87,7 +87,7 @@ class controller:
                 gr.edge(node, adj, color = 'red', label = label_name)
 #                name = 'aista' + node + adj
 #                gr.render(view = False, directory = 'D:\Programming\Python\Automata1', cleanup = True, filename = name)
-        gr.render(view = False, directory = 'C:/Users/juand/Desktop/proyecto automatas1/src/imgs', cleanup = True, filename = 'Shortest traversal')
+        gr.render(view = False, directory = 'C:/Users\juand\Desktop\proyectoAutomatas/src/imgs', cleanup = True, filename = 'Shortest traversal')
 
     def stepbstep(self, traversal, q0, f):
         #print(traversal)
@@ -105,7 +105,7 @@ class controller:
               
         self.graph = new_graph
         self.convert_graph()
-        gr = g.Digraph(format = 'png', directory = 'C:/Users/juand/Desktop/proyecto automatas1/src/imgs', strict = True)
+        gr = g.Digraph(format = 'png', directory = 'C:/Users\juand\Desktop\proyectoAutomatas\src/imgs', strict = True)
         gr.graph_attr['rankdir'] = 'LR'
         gr.node('ini', shape = 'point')
         
@@ -124,5 +124,5 @@ class controller:
                 gr.edge(node, adj, color = 'YELLOW', label = label_name)
 #               name = 'aista' + node + adj
 #                gr.render(view = False, directory = 'D:\Programming\Python\Automata1', cleanup = True, filename = name)
-                gr.render(view = False, directory = 'C:/Users/juand/Desktop/proyecto automatas1/src/imgs', cleanup = True, filename = 'img'+str(i))
+                gr.render(view = False, directory = 'C:/Users\juand\Desktop\proyectoAutomatas/src/imgs', cleanup = True, filename = 'img'+str(i))
                 i+=1
